@@ -5,7 +5,7 @@ const routerPrincipal = require('./routes/principal') ;
 const routerPedidos = require('./routes/pedidos') ;
 const routerPerfil = require('./routes/perfil') ;
 
-const {connect} = require('/models')
+const {connect} = require('./models')
 
 const app = express();
 const porta =3000;
