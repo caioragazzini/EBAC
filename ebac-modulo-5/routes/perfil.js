@@ -1,12 +1,21 @@
 const express =require('express');
 
+const { Perfil } = require('../models/perfis');
+
 const router = express.Router();
 
 router.get('/', (_, res)=>{
-    res.render('perfil/index',{
-        nomeUsuario: "Ragazzini",
-        idade:"...."
-    });
+    Perfil.find({}).then((perfil) => {
+        
+        res.render('perfil/index',{
+            nomeUsuario: "Ragazzini",
+            perfil: perfil,
+        });
+
+
+
+    })
+   
 });
 
 module.exports = router;

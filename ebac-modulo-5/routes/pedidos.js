@@ -1,15 +1,15 @@
 const express = require("express");
 
-const { Pedido } = require('../models');
+const { Pedido } = require('../models/pedidos');
 
 const router = express.Router();
 
 router.get('/', (_, res)=>{
-    Pedido.find({}).then((pedidos)=> {
+    Pedido.find({}).then((pedido)=> {
 
         res.render('pedidos/index', {
             nomeUsuario:"Caio Ragazzini",
-            pedidos: pedidos,
+            pedidos: pedido,
         });
 
     })
