@@ -1,0 +1,15 @@
+<h1>Perfil do usuário: <%= nomeUsuario %>!</h1>
+
+<ul>
+  <% perfilUser.map((perfil) => { %>
+    <p><li>
+      Nome: <%= perfil.cliente.nome %>
+    </li>
+    <li>
+      Sobrenome: <%= perfil.cliente.sobrenome %>
+    </li>
+    <li>
+      Idade: <%= perfil.cliente.idade %>
+    </li></p>
+  <% }); %>
+</ul>

@@ -1,21 +1,19 @@
-const express =require('express');
-
-const { Perfil } = require('../models/perfis');
+const express = require('express');
+const { Perfil } = require('../models'); 
 
 const router = express.Router();
 
-router.get('/', (_, res)=>{
-    Perfil.find({}).then((perfil) => {
-        
-        res.render('perfil/index',{
-            nomeUsuario: "Ragazzini",
-            perfil: perfil,
-        });
-
-
-
-    })
-   
+router.get('/', async (_, res) => {
+  try {
+    const perfils = await Perfil.find({});
+    res.render('index', {
+      nomeUsuario: "Ragazzini",
+      perfilUser: perfils,
+    });
+  } catch (error) {
+    console.error('Error fetching profiles:', error);
+    res.status(500).send('Internal server error');
+  }
 });
 
 module.exports = router;
